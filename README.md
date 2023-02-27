@@ -30,30 +30,6 @@ Data Scraper is a powerful browser extension that enables you to easily extract 
 This extension only works on chrome right now, you can install it from 
 Chrome Extensions Store [From Here](https://bit.ly/3IAvhEW)
 
-
-
-### How To Run The Code
-_This is a simple guide about how to fork and run the extension on chrome_
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/m9hmood/data-scraper-ext.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Run the dev server.
-   ```sh
-   npm run dev
-   ```
-4. Go to [chrome://extensions](chrome://extensions)
-5. Enabel developer mode from the switch on top-right or top-left
-6. Click on load unpacked
-7. Select the build folder inside the project folder
-
-<!-- USAGE EXAMPLES -->
-
 ## Usage
 
 Watch this video to understand how the plugin works: [Youtube](https://www.youtube.com/watch?v=y34nUfVpHYg)
@@ -62,7 +38,8 @@ Watch this video to understand how the plugin works: [Youtube](https://www.youtu
 
 ## Roadmap
 
-- [x] Support scroll pagination
+- [ ] Support scroll pagination
+- [ ] Support scraping table with auto pagination
 - [ ] Multi-language Support
   - [x] English
   - [ ] Arabic
@@ -83,6 +60,29 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+### How To Run The Code
+_This is a simple guide about how to clone and run the extension on chrome_
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/m9hmood/data-scraper-ext.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the dev server.
+   ```sh
+   npm run dev
+   ```
+4. Go to [chrome://extensions](chrome://extensions)
+5. Enabel developer mode from the switch on top-right or top-left
+6. Click on load unpacked
+7. Select the build folder inside the project folder
+
+<!-- USAGE EXAMPLES -->
+
 
 <!-- LICENSE -->
 
