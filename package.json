@@ -1,0 +1,40 @@
+{
+  "name": "content-scraper",
+  "version": "0.0.0",
+  "author": "Mahmood A.Shakir",
+  "description": "",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "chrome-extension",
+    "vue",
+    "vite",
+    "create-chrome-ext"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "fmt": "prettier --write '**/*.{vue,ts,json,css,scss,md}'"
+  },
+  "dependencies": {
+    "@types/papaparse": "^5.3.7",
+    "papaparse": "^5.3.2",
+    "pinia": "^2.0.29",
+    "sweetalert2": "^11.7.0",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.12",
+    "@types/chrome": "^0.0.209",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "prettier": "^2.7.1",
+    "sass": "^1.57.1",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.13",
+    "vue-tsc": "^0.38.2"
+  }
+}

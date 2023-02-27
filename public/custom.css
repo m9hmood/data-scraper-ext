@@ -1,0 +1,38 @@
+.sc-swal {
+  color: rgba(255, 255, 255, 0.87) !important;
+  background-color: #242424 !important;
+}
+.sc-swal .swal2-confirm {
+  background: linear-gradient(90deg, #b53471, #ed4c67, #b53471) 0 0 / 400% !important;
+}
+.sc-swal .swal2-input {
+  margin: 10px 0 !important;
+  width: 100% !important;
+}
+.sc-swal .swal2-confirm:hover {
+  cursor: pointer;
+  background: linear-gradient(90deg, #b53471, #ed4c67, #b53471) 0 0 / 150% !important;
+}
+.sc-swal .swal2-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 21px;
+}
+[data-highlighted='true'] {
+  background: linear-gradient(90deg, #b53471, #ed4c67, #b53471) 0 0 / 400% !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+[data-scraper='true'] {
+  position: relative;
+}
+[data-scraper='true']::before {
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border: 1px dashed red;
+}
