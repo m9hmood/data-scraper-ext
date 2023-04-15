@@ -2,14 +2,13 @@ import { setData, getData } from '../utils/storage.util'
 import {
   isClickInsideModal,
   getElementPath,
-  startHighlightElmentOnMouseHover,
-  stopHighlightElmentOnMouseHover,
+  startHighlightElementOnMouseHover,
+  stopHighlightElementOnMouseHover,
 } from '../utils/html.util'
 import alert from 'sweetalert2'
 
 export let pagination: any = null
 export let lastPage: string = ''
-
 
 /**
  * method to sleep for a given time in milliseconds
@@ -27,13 +26,13 @@ const _sleep = (ms: number) => {
  */
 export const resetPagination = () => {
   pagination = null
-  _updagePagination()
+  _updatePaginationValueInStorage()
 }
 
 /**
  * Method to update the pagination in the storage
  */
-const _updagePagination = async () => {
+const _updatePaginationValueInStorage = async () => {
   await setData(window.location.origin + '-pagination', { pagination, lastPage })
 }
 
@@ -69,7 +68,7 @@ export const extractPaginationList = (el: HTMLElement) => {
     const textContent = link.textContent || null
     return { href, textContent }
   })
-  return reformatePaginationList(pagination)
+  return reformatPaginationList(pagination)
 }
 
 /**
@@ -92,21 +91,21 @@ const extractPaginationLinks = (el: HTMLElement) => {
     const textContent = link.textContent || null
     return { href, textContent }
   })
-  return reformatePaginationList(pagination)
+  return reformatPaginationList(pagination)
 }
 /**
- * Method to reformate the pagination list to remove the non numeric values
+ * Method to reformat the pagination list to remove the non numeric values
  * @param list - the pagination list to reformate
  * @returns - the reformated pagination list
  * @example
- * reformatePaginationList([
+ * reformatPaginationList([
  * { href: '/page/2', textContent: '2' },
  * { href: '/page/3', textContent: '3' },
  * { href: '/page/4', textContent: 'Next' }
  * ])
  * => [{ href: '/page/2', textContent: '2' }, { href: '/page/3', textContent: '3' }]
  */
-const reformatePaginationList = (list: any[]) => {
+const reformatPaginationList = (list: any[]) => {
   return list.filter((item) => item.textContent && /^\d+$/.test(item.textContent))
 }
 /**
@@ -157,12 +156,12 @@ const navigateToPage = (page: number) => {
   const { href } = pagination.list[page]
   if (href) {
     window.location.href = href
-    _updagePagination()
+    _updatePaginationValueInStorage()
   }
 }
 
 /**
- * Method to navigate to auto navigate to the next page
+ * Method to auto navigate to the next page
  * when scraping the data from the website and the pagination
  * is selected.
  * @returns - void
@@ -177,7 +176,7 @@ export const autoNavigate = async (callback: () => Promise<any>) => {
     const pageIndex = lastPageIndex + 1
     if (pageIndex <= pagination.list.length) {
       lastPage = pagination.list[pageIndex]?.textContent
-      await _updagePagination()
+      await _updatePaginationValueInStorage()
       if (!lastPage) {
         alert.fire('Success', 'Scraping proccess done, you can download the data now.', 'success')
         await setData(window.location.origin + '-scraping', 'inActive')
@@ -225,17 +224,17 @@ const onSelectPagination = (event: MouseEvent) => {
       showConfirmButton: false,
       customClass: 'sc-swal',
     })
-    _updagePagination()
+    _updatePaginationValueInStorage()
     stopPaginationSelecting()
   }
 }
 
 export const startPaginationSelecting = () => {
   document.addEventListener('click', onSelectPagination)
-  startHighlightElmentOnMouseHover()
+  startHighlightElementOnMouseHover()
 }
 
 export const stopPaginationSelecting = () => {
   document.removeEventListener('click', onSelectPagination)
-  stopHighlightElmentOnMouseHover()
+  stopHighlightElementOnMouseHover()
 }

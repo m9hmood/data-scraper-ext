@@ -26,7 +26,7 @@ export const createCsvFile = (data: any) => {
  * { name: 'Jane', age: 40 },
  * { name: 'Jack', age: 50 },
  * ], 'users.csv')
- * // => users.csv file is downloaded
+ * => users.csv file is downloaded
  */
 export const generateCsvFile = (data: any, filename: string) => {
   const csvFile = createCsvFile(data)

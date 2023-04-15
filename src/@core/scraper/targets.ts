@@ -1,6 +1,6 @@
 import {
-  startHighlightElmentOnMouseHover,
-  stopHighlightElmentOnMouseHover,
+  startHighlightElementOnMouseHover,
+  stopHighlightElementOnMouseHover,
 } from '../utils/html.util'
 import { getData, setData } from '../utils/storage.util'
 import {
@@ -18,7 +18,7 @@ export let targets: ITargetedElement[] = []
 /**
  * Method to update targets in storage
  */
-const _updateTargets = async () => {
+const _updateTargetsValueInStorage = async () => {
   await setData(window.location.origin + '-targets', { targets })
 }
 
@@ -27,7 +27,7 @@ const _updateTargets = async () => {
  */
 export const resetTargets = async () => {
   targets = []
-  await _updateTargets()
+  await _updateTargetsValueInStorage()
 }
 
 /**
@@ -99,7 +99,7 @@ const onSelectElement = (event: MouseEvent) => {
   if (isElementSelected(el)) {
     unHighlightSelector(selector)
     targets = targets.filter((target) => target.path !== selector)
-    _updateTargets()
+    _updateTargetsValueInStorage()
     return
   }
   getTargetSettings().then((settings) => {
@@ -109,15 +109,15 @@ const onSelectElement = (event: MouseEvent) => {
       type: settings[1] as any,
     })
     highlightSelector(selector)
-    _updateTargets()
+    _updateTargetsValueInStorage()
   })
 }
 
 export const startTargetsSelecting = () => {
   document.addEventListener('click', onSelectElement, true)
-  startHighlightElmentOnMouseHover()
+  startHighlightElementOnMouseHover()
 }
 export const stopTargetsSelecting = () => {
   document.removeEventListener('click', onSelectElement, true)
-  stopHighlightElmentOnMouseHover()
+  stopHighlightElementOnMouseHover()
 }

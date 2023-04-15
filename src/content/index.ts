@@ -19,7 +19,7 @@ import {
 import { IExtensionMessage } from './../@core/interfaces/messages.interface'
 import { extractDataFromTargets,   extractTableData,
 } from '../@core/scraper/data'
-import { getData as getStroageData, removeData, setData } from './../@core/utils/storage.util'
+import { getData as getStorageData, removeData, setData } from './../@core/utils/storage.util'
 
 /**
  * Methods to load Load saved targets from  storage
@@ -31,7 +31,7 @@ loadSavedPagination()
 /**
  * Check if the scraping is active and continue scraping if it is
  */
-getStroageData(window.location.origin + '-scraping').then((data) => {
+getStorageData(window.location.origin + '-scraping').then((data) => {
   if (data === 'active') {
     autoNavigate(async () => {
       /**
@@ -40,7 +40,7 @@ getStroageData(window.location.origin + '-scraping').then((data) => {
        * if there is any
        */
       const data = extractDataFromTargets(targets)
-      const prevData = await getStroageData(window.location.origin + '-data')
+      const prevData = await getStorageData(window.location.origin + '-data')
       const newData = [...(prevData || []), ...data]
       await setData(window.location.origin + '-data', newData)
     })
@@ -75,7 +75,7 @@ chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendRe
       setData(window.location.origin + '-scraping', 'active')
       autoNavigate(async () => {
         const data = extractDataFromTargets(targets)
-        const prevData = await getStroageData(window.location.origin + '-data')
+        const prevData = await getStorageData(window.location.origin + '-data')
         const newData = [...(prevData || []), ...data]
         await setData(window.location.origin + '-data', newData)
       })
@@ -110,7 +110,7 @@ chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendRe
      * and remove the data from the storage
      */
     case MESSAGES_TYPES.DOWNLOAD_DATA:
-      getStroageData(window.location.origin + '-data').then((data) => {
+      getStorageData(window.location.origin + '-data').then((data) => {
         if (data) {
           generateCsvFile(
             data,

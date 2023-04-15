@@ -1,8 +1,8 @@
-import { MESSAGES_TYPES } from './../../@core/enums/message-type.enum'
+import { MESSAGES_TYPES } from '../../@core/enums/message-type.enum'
 import { onMounted } from 'vue'
 import { useChrome } from '../../@core/composables/useChrome'
 import { state } from '../sharedState'
-import { STEPS } from './../../@core/enums/steps.enum'
+import { STEPS } from '../../@core/enums/steps.enum'
 
 /**
  * Composable that handles all the communication with the content script
@@ -16,10 +16,10 @@ import { STEPS } from './../../@core/enums/steps.enum'
  * downloadTableData,
  * beginScraping,
  * resetExtensionSettings,
- * } = useContentMessanger()
+ * } = useContentMessenger()
  *
  */
-export const useContentMessanger = () => {
+export const useContentMessenger = () => {
   const { sendMessageToCurrentTab } = useChrome()
   /**
    * Method that sends a message to the content script
@@ -103,7 +103,7 @@ export const useContentMessanger = () => {
    */
   const beginScraping = async () => {
     await sendMessageToCurrentTab({ type: MESSAGES_TYPES.START_SCRAPING, payload: null })
-    state.currentStep = STEPS.SCRAPING_IN_PROCCESS
+    state.currentStep = STEPS.SCRAPING_IN_PROCESS
   }
   /**
    * Method that sends a message to the content script

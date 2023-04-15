@@ -89,9 +89,9 @@ export const unHighlightSelector = (selector: string) => {
 export const isElementSelected = (el: HTMLElement) => el.dataset.scraper === 'true'
 
 /**
- * Method to check if the click event is inside a swal2 modal
+ * Method to check if the click event is inside a SweetAlert2 modal
  * @param event - the click event
- * @returns - true if the click event is inside a swal2 modal, false otherwise
+ * @returns - true if the click event is inside a SweetAlert2 modal, false otherwise
  */
 export const isClickInsideModal = (event: MouseEvent): Boolean => {
   const el = event.target as HTMLElement
@@ -105,7 +105,7 @@ export const isClickInsideModal = (event: MouseEvent): Boolean => {
  * Method to highlight the element on mouse hover (add the data-highlighted attribute)
  * @param event - the mousemove event
  */
-const _highlightElmentOnMouseHover = (event: MouseEvent) => {
+const _highlightElementOnMouseHover = (event: MouseEvent) => {
   const el = event.target as HTMLElement
   if (isClickInsideModal(event)) return
   document
@@ -116,15 +116,15 @@ const _highlightElmentOnMouseHover = (event: MouseEvent) => {
 /**
  * Method to start highlighting listeners in web page
  */
-export const startHighlightElmentOnMouseHover = () => {
-  document.addEventListener('mousemove', _highlightElmentOnMouseHover, true)
+export const startHighlightElementOnMouseHover = () => {
+  document.addEventListener('mousemove', _highlightElementOnMouseHover, true)
 }
 /**
  * Method to stop highlighting listeners in web page
  * and remove the data-highlighted attribute from all elements
  */
-export const stopHighlightElmentOnMouseHover = () => {
-  document.removeEventListener('mousemove', _highlightElmentOnMouseHover, true)
+export const stopHighlightElementOnMouseHover = () => {
+  document.removeEventListener('mousemove', _highlightElementOnMouseHover, true)
   document
     .querySelectorAll('[data-highlighted]')
     .forEach((el: any) => delete el.dataset.highlighted)

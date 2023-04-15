@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { state } from './sharedState'
-import { useContentMessanger } from './composables/useContentMessanger'
-import { useBackgroundMessanger } from './composables/useBackgroundMessanger'
+import { useContentMessenger } from './composables/useContentMessenger'
+import { useBackgroundMessenger } from './composables/useBackgroundMessenger'
 import { useChrome } from '../@core/composables/useChrome'
 import { STEPS } from '../@core/enums/steps.enum'
 
@@ -15,10 +15,10 @@ const {
   beginScraping,
   resetExtensionSettings,
   isContentScriptActive
-} = useContentMessanger()
+} = useContentMessenger()
 
 const { getCurrentTab } = useChrome()
-const { stopScrapingProccess } = useBackgroundMessanger()
+const { stopScrapingProcess } = useBackgroundMessenger()
 
 const scriptIsActive = ref(false);
 
@@ -101,7 +101,7 @@ onMounted(() => {
         <button
           v-if="
             state.currentStep !== STEPS.SELECT_ELEMENTS &&
-            state.currentStep !== STEPS.SCRAPING_IN_PROCCESS
+            state.currentStep !== STEPS.SCRAPING_IN_PROCESS
           "
           class="btn btn-success"
           @click="downloadScrapedData"
@@ -112,7 +112,7 @@ onMounted(() => {
       <button
         v-if="
           state.currentStep !== STEPS.SELECT_ELEMENTS &&
-          state.currentStep !== STEPS.SCRAPING_IN_PROCCESS
+          state.currentStep !== STEPS.SCRAPING_IN_PROCESS
         "
         class="btn btn-danger"
         @click="resetExtensionSettings"
@@ -120,9 +120,9 @@ onMounted(() => {
         Reset
       </button>
       <button
-        v-if="state.currentStep === STEPS.SCRAPING_IN_PROCCESS"
+        v-if="state.currentStep === STEPS.SCRAPING_IN_PROCESS"
         class="btn btn-danger"
-        @click="stopScrapingProccess"
+        @click="stopScrapingProcess"
       >
         Stop Scraping
       </button>
