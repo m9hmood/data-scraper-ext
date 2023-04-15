@@ -2,7 +2,7 @@ import {
   startHighlightElementOnMouseHover,
   stopHighlightElementOnMouseHover,
 } from '../utils/html.util'
-import { getData, setData } from '../utils/storage.util'
+import { retrieveData, storeData } from '../utils/storage.util'
 import {
   isElementSelected,
   unHighlightSelector,
@@ -19,7 +19,7 @@ export let targets: ITargetedElement[] = []
  * Method to update targets in storage
  */
 const _updateTargetsValueInStorage = async () => {
-  await setData(window.location.origin + '-targets', { targets })
+  await storeData(window.location.origin + '-targets', { targets })
 }
 
 /**
@@ -34,7 +34,7 @@ export const resetTargets = async () => {
  * Method to load Load saved targets from  storage
  */
 export const loadSavedTargets = async () => {
-  const data = await getData(window.location.origin + '-targets')
+  const data = await retrieveData(window.location.origin + '-targets')
   if (data) {
     targets = data.targets
   }

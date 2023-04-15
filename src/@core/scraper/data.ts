@@ -5,8 +5,8 @@ import { ITargetedElement } from '../interfaces/scraper.interface'
  * @param el - the element to extract data from
  * @returns - the src attribute of the image element
  */
-const getDataFromImage = (el: HTMLElement): string => {
-  if (el.tagName !== 'IMG') return getDataFromImage(el.querySelector('img') as HTMLElement)
+const retrieveDataFromImage = (el: HTMLElement): string => {
+  if (el.tagName !== 'IMG') return retrieveDataFromImage(el.querySelector('img') as HTMLElement)
   return el.getAttribute('src') as string
 }
 /**
@@ -14,9 +14,9 @@ const getDataFromImage = (el: HTMLElement): string => {
  * @param el - the element to extract data from
  * @returns - the href attribute of the link element
  */
-const getDataFromLink = (el: HTMLElement): string => {
+const retrieveDataFromLink = (el: HTMLElement): string => {
   if (!el) return ''
-  if (el.tagName !== 'A') return getDataFromLink(el.querySelector('a') as HTMLElement)
+  if (el.tagName !== 'A') return retrieveDataFromLink(el.querySelector('a') as HTMLElement)
   return el.getAttribute('href') as string
 }
 
@@ -25,7 +25,7 @@ const getDataFromLink = (el: HTMLElement): string => {
  * @param el - the element to extract data from
  * @returns - the text of the text element
  */
-const getDataFromText = (el: HTMLElement): string => {
+const retrieveDataFromText = (el: HTMLElement): string => {
   return el.innerText
 }
 /**
@@ -37,11 +37,11 @@ const getDataFromText = (el: HTMLElement): string => {
 const extractData = (el: HTMLElement, type: string) => {
   switch (type) {
     case 'image':
-      return getDataFromImage(el)
+      return retrieveDataFromImage(el)
     case 'link':
-      return getDataFromLink(el)
+      return retrieveDataFromLink(el)
     case 'text':
-      return getDataFromText(el)
+      return retrieveDataFromText(el)
   }
 }
 /**

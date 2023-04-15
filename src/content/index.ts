@@ -19,7 +19,7 @@ import {
 import { IExtensionMessage } from './../@core/interfaces/messages.interface'
 import { extractDataFromTargets,   extractTableData,
 } from '../@core/scraper/data'
-import { getData as getStorageData, removeData, setData } from './../@core/utils/storage.util'
+import { retrieveData, removeData, storeData } from './../@core/utils/storage.util'
 
 /**
  * Methods to load Load saved targets from  storage
@@ -31,7 +31,7 @@ loadSavedPagination()
 /**
  * Check if the scraping is active and continue scraping if it is
  */
-getStorageData(window.location.origin + '-scraping').then((data) => {
+retrieveData(window.location.origin + '-scraping').then((data) => {
   if (data === 'active') {
     autoNavigate(async () => {
       /**
@@ -40,9 +40,9 @@ getStorageData(window.location.origin + '-scraping').then((data) => {
        * if there is any
        */
       const data = extractDataFromTargets(targets)
-      const prevData = await getStorageData(window.location.origin + '-data')
+      const prevData = await retrieveData(window.location.origin + '-data')
       const newData = [...(prevData || []), ...data]
-      await setData(window.location.origin + '-data', newData)
+      await storeData(window.location.origin + '-data', newData)
     })
   }
 })
@@ -72,12 +72,12 @@ chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendRe
      * to continue scraping if the user navigates to another page
      */
     case MESSAGES_TYPES.START_SCRAPING:
-      setData(window.location.origin + '-scraping', 'active')
+      storeData(window.location.origin + '-scraping', 'active')
       autoNavigate(async () => {
         const data = extractDataFromTargets(targets)
-        const prevData = await getStorageData(window.location.origin + '-data')
+        const prevData = await retrieveData(window.location.origin + '-data')
         const newData = [...(prevData || []), ...data]
-        await setData(window.location.origin + '-data', newData)
+        await storeData(window.location.origin + '-data', newData)
       })
       sendResponse('success')
       break
@@ -110,7 +110,7 @@ chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendRe
      * and remove the data from the storage
      */
     case MESSAGES_TYPES.DOWNLOAD_DATA:
-      getStorageData(window.location.origin + '-data').then((data) => {
+      retrieveData(window.location.origin + '-data').then((data) => {
         if (data) {
           generateCsvFile(
             data,

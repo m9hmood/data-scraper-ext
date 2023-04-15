@@ -4,7 +4,7 @@
  * @param data - the data to save
  * @returns - void
  */
-export const setData = async (key: string, data: any) => {
+export const storeData = async (key: string, data: any) => {
   try {
     await chrome.storage.local.set({ [key]: data })
   } catch (error) {
@@ -16,7 +16,7 @@ export const setData = async (key: string, data: any) => {
  * @param key - the key to get the data with
  * @returns - the data or null
  */
-export const getData = async (key: string) => {
+export const retrieveData = async (key: string) => {
   try {
     const data = await chrome.storage.local.get(key)
     return data[key]

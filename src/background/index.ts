@@ -1,6 +1,6 @@
 import { MESSAGES_TYPES } from './../@core/enums/message-type.enum'
 import { IExtensionMessage } from './../@core/interfaces/messages.interface'
-import { getData, removeData } from './../@core/utils/storage.util'
+import { retrieveData, removeData } from './../@core/utils/storage.util'
 
 /**
  * Listen for messages from the popup to background script
@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendRe
      * This is used to show the user that the scraping is active
      */
     case MESSAGES_TYPES.IS_SCRAPING:
-      getData(message.payload + '-scraping').then(
+      retrieveData(message.payload + '-scraping').then(
         (data: 'active' | 'inactive' | undefined) => {
           chrome.runtime.sendMessage({ type: 'IS_SCRAPING', payload: data || 'inactive' })
         },

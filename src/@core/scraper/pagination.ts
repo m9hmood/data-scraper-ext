@@ -1,4 +1,4 @@
-import { setData, getData } from '../utils/storage.util'
+import { storeData, retrieveData } from '../utils/storage.util'
 import {
   isClickInsideModal,
   getElementPath,
@@ -33,7 +33,7 @@ export const resetPagination = () => {
  * Method to update the pagination in the storage
  */
 const _updatePaginationValueInStorage = async () => {
-  await setData(window.location.origin + '-pagination', { pagination, lastPage })
+  await storeData(window.location.origin + '-pagination', { pagination, lastPage })
 }
 
 /**
@@ -41,7 +41,7 @@ const _updatePaginationValueInStorage = async () => {
  * @returns - void
  */
 export const loadSavedPagination = async () => {
-  const data = await getData(window.location.origin + '-pagination')
+  const data = await retrieveData(window.location.origin + '-pagination')
   if (data) {
     pagination = data.pagination
     lastPage = data.lastPage
@@ -179,7 +179,7 @@ export const autoNavigate = async (callback: () => Promise<any>) => {
       await _updatePaginationValueInStorage()
       if (!lastPage) {
         alert.fire('Success', 'Scraping proccess done, you can download the data now.', 'success')
-        await setData(window.location.origin + '-scraping', 'inActive')
+        await storeData(window.location.origin + '-scraping', 'inActive')
         chrome.runtime.sendMessage({ action: 'SCRAPING_DONE', payload: 'inactive' })
         return
       }
