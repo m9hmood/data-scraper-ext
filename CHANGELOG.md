@@ -9,7 +9,7 @@ Summary
   5. version timestamp follow the yyyy.MM.dd format
 ```
 
-## 0.0.0 [2023.01.21]
+## 0.1.0 [2023.01.21]
 
 - feat: initial
 - feat: generator by ![create-chrome-ext](https://www.npmjs.com/package/create-chrome-ext)

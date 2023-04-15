@@ -39,7 +39,7 @@ Watch this video to understand how the plugin works: [Youtube](https://www.youtu
 ## Roadmap
 
 - [ ] Support scroll pagination
-- [ ] Support scraping table with auto pagination
+- [x] Support scraping table with auto pagination
 - [ ] Multi-language Support
   - [x] English
   - [ ] Arabic

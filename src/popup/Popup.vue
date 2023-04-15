@@ -131,7 +131,7 @@ onMounted(() => {
       <span class="footer__copyright">
         Made with ❤️ by <a href="https://mahmoodshakir.com" target="_blank">Mahmood A.Shakir</a>
       </span>
-      <span class="footer__version"> v 0.1.0 </span>
+      <span class="footer__version"> v 0.1.2 </span>
     </div>
   </div>
 </template>

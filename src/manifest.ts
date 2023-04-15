@@ -4,7 +4,7 @@ export default defineManifest({
   name: 'Data Scraper',
   description:
     'extracts content from web pages, with the ability to navigate through multiple pages using pagination.',
-  version: '0.1.0',
+  version: '0.1.2',
   manifest_version: 3,
   icons: {
     16: 'img/logo-16.png',
