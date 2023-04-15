@@ -95,3 +95,21 @@ export const extractDataFromTargets = (targets: ITargetedElement[]) => {
   })
   return data
 }
+
+/**
+ * Method to extracts data from a table element
+ * @param table - the table element to extract data from
+ * @returns - an array of objects representing the table data
+ */
+export const extractTableData = (table: HTMLTableElement): Record<string, any>[] => {
+  const headers = Array.from(table.querySelectorAll('th')).map((th) => th.textContent) as string[]
+  const rows = Array.from(table.querySelectorAll('tr')) as HTMLTableRowElement[]
+  const data = rows.map((row) => {
+    const cells = Array.from(row.querySelectorAll('td'))
+    return cells.reduce((acc: Record<string, any>, cell, index: number) => {
+      acc[headers[index]] = cell.textContent
+      return acc
+    }, {})
+  })
+  return data.filter((row) => Object.keys(row).length > 0)
+}

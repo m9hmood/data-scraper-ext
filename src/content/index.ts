@@ -6,7 +6,6 @@ import {
   stopTargetsSelecting,
   loadSavedTargets,
   resetTargets,
-  extractTableData,
   targets,
 } from './../@core/scraper/targetExtractor'
 import {
@@ -18,7 +17,8 @@ import {
   stopPaginationSelecting,
 } from './../@core/scraper/paginationExtractor'
 import { IExtensionMessage } from './../@core/interfaces/messages.interface'
-import { extractDataFromTargets } from '../@core/scraper/dataExtractor'
+import { extractDataFromTargets,   extractTableData,
+} from '../@core/scraper/dataExtractor'
 import { getData as getStroageData, removeData, setData } from './../@core/utils/storage.util'
 
 /**
