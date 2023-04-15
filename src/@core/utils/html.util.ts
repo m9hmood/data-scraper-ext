@@ -24,6 +24,22 @@ export const getUniqueIdentifier = (el: HTMLElement) => {
   return null
 }
 /**
+ * Method to check if the given element is a table item (td or th) or not
+ * @param el 
+ * @returns boolean - true if the element is a table item, false otherwise
+ */
+export const isElementTableItem = (el: HTMLElement): boolean => {
+  return !!(
+    el.tagName === 'TD' ||
+    el.tagName === 'TH' ||
+    el.parentElement?.tagName === 'TD' ||
+    el.parentElement?.tagName === 'TH' ||
+    el.closest('td') ||
+    el.closest('th')
+  )
+}
+
+/**
  * Method to get the path of the given element (the path is the list of the parent elements)
  * @param el - the element to get the path from
  * @returns - the path of the element
@@ -36,14 +52,31 @@ export const getUniqueIdentifier = (el: HTMLElement) => {
  * // returns '#my-class > .my-class > .my-class'
  */
 export const getElementPath = (el: HTMLElement) => {
-  const path = []
-  while (el.parentNode) {
-    if (el.tagName === 'HTML') break
-    path.unshift(getUniqueIdentifier(el) || el.tagName)
-    el = el.parentNode as HTMLElement
+  const path = [];
+  let columnNum = 0;
+
+  while (el && el !== document.documentElement) {
+    let identifier = getUniqueIdentifier(el) || el.tagName;
+
+    if (el.tagName === 'TD' && el.parentNode) {
+      const siblings = Array.from(el.parentNode.children);
+      columnNum = siblings.indexOf(el) + 1;
+    }
+
+    if (el.tagName === 'TR' || !isElementTableItem(el)) {
+      path.unshift(identifier);
+    }
+
+    el = el.parentNode as HTMLElement;
   }
-  return path.join(' > ')
-}
+
+  if (columnNum !== 0) {
+    path.push(`:nth-child(${columnNum})`);
+  }
+
+  return path.join(' > ');
+};
+
 /**
  * Method to set the given selector as highlighted in the DOM (add the data-scraper attribute)
  * @param selector - the selector to highlight

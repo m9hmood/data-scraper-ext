@@ -46,11 +46,15 @@ const extractData = (el: HTMLElement, type: string) => {
 }
 /**
  * method to get all elements as an array based on a path selector string
+ * this method will filter out elements that are inside a table header
+ * 
  * @param path - the path selector string
  * @returns - an array of elements
  */
 const getAllElementsAsArray = (path: string): HTMLElement[] => {
-  return Array.from(document.querySelectorAll(path)) as HTMLElement[]
+  return Array.from(document.querySelectorAll(path)).filter((el) => {
+    return el.closest('thead') === null || el.closest('tfoot') === null
+  }) as HTMLElement[]
 }
 /**
  * method to get data from a list of targeted elements
