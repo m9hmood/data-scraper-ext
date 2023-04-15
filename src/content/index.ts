@@ -7,7 +7,7 @@ import {
   loadSavedTargets,
   resetTargets,
   targets,
-} from './../@core/scraper/targetExtractor'
+} from '../@core/scraper/targets'
 import {
   autoNavigate,
   loadSavedPagination,
@@ -15,10 +15,10 @@ import {
   resetPagination,
   startPaginationSelecting,
   stopPaginationSelecting,
-} from './../@core/scraper/paginationExtractor'
+} from '../@core/scraper/pagination'
 import { IExtensionMessage } from './../@core/interfaces/messages.interface'
 import { extractDataFromTargets,   extractTableData,
-} from '../@core/scraper/dataExtractor'
+} from '../@core/scraper/data'
 import { getData as getStroageData, removeData, setData } from './../@core/utils/storage.util'
 
 /**

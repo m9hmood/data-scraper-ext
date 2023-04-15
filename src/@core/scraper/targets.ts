@@ -1,8 +1,8 @@
 import {
   startHighlightElmentOnMouseHover,
   stopHighlightElmentOnMouseHover,
-} from './../utils/html.util'
-import { getData, setData } from './../utils/storage.util'
+} from '../utils/html.util'
+import { getData, setData } from '../utils/storage.util'
 import {
   isElementSelected,
   unHighlightSelector,

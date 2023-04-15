@@ -1,17 +1,15 @@
-import { Logger } from './../libs/logger'
-import { setData, getData } from './../utils/storage.util'
+import { setData, getData } from '../utils/storage.util'
 import {
   isClickInsideModal,
   getElementPath,
   startHighlightElmentOnMouseHover,
   stopHighlightElmentOnMouseHover,
-} from './../utils/html.util'
+} from '../utils/html.util'
 import alert from 'sweetalert2'
 
 export let pagination: any = null
 export let lastPage: string = ''
 
-let _sleepTime: number = 1000
 
 /**
  * method to sleep for a given time in milliseconds
