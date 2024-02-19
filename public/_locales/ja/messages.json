@@ -1,0 +1,87 @@
+{
+  "extName": {
+    "message": "データスクレイパー",
+    "description": "拡張機能名"
+  },
+  "contentScriptNotLoaded": {
+    "message": "この拡張機能を使用するには、現在のページを再読み込みしてください。",
+    "description": "コンテンツスクリプトがページにロードされていない場合に表示されるエラーメッセージ。"
+  },
+  "downloadTableData": {
+    "message": "テーブルデータのダウンロード",
+    "description": "テーブルデータをダウンロードするためのボタンラベル。"
+  },
+  "startPicking": {
+    "message": "ピッキングを開始",
+    "description": "ページ要素のピッキングを開始するためのボタンラベル。"
+  },
+  "continuePicking": {
+    "message": "ピッキングを継続",
+    "description": "要素のピッキングを継続するためのボタン。"
+  },
+  "selectPagination": {
+    "message": "ページネーションの選択",
+    "description": "ページネーション要素を選択するためのボタンラベル。"
+  },
+  "reSelectPagination": {
+    "message": "ページネーションの再選択",
+    "description": "ページネーション要素を再選択するためのボタンラベル。"
+  },
+  "startScraping": {
+    "message": "スクレイピングを開始",
+    "description": "データのスクレイピングを開始するためのボタンラベル。"
+  },
+  "downloadScrapedData": {
+    "message": "スクレイピングされたデータのダウンロード",
+    "description": "スクレイピングされたデータをダウンロードするためのボタンラベル。"
+  },
+  "resetSettings": {
+    "message": "ウェブサイトの設定をリセット",
+    "description": "設定をリセットするためのボタンラベル。"
+  },
+  "stopScraping": {
+    "message": "スクレイピングを停止",
+    "description": "データのスクレイピングを停止するためのボタンラベル。"
+  },
+  "madeBy": {
+    "message": "❤️ で制作",
+    "description": "拡張機能が愛情を込めて制作されたことを示すメッセージ。"
+  },
+  "identifier": {
+    "message": "識別子",
+    "description": "識別子入力のラベル。"
+  },
+  "type": {
+    "message": "タイプ",
+    "description": "タイプ入力のラベル。"
+  },
+  "paginationSelectionError": {
+    "message": "有効なページネーション要素を選択してください。",
+    "description": "無効なページネーション要素が選択された場合に表示されるエラーメッセージ。"
+  },
+  "paginationSelectionSuccess": {
+    "message": "ページネーション要素が正常に選択されました。",
+    "description": "ページネーション要素が正常に選択されたことを示す成功メッセージ。"
+  },
+  "targetSettings": {
+    "message": "ターゲット設定",
+    "description": "ターゲット設定セクションのラベル。"
+  },
+  "identifierMustBeUnique": {
+    "message": "識別子は一意で空であってはいけません。",
+    "description": "識別子が一意でない場合に表示されるエラーメッセージ。"
+  },
+  "scrapingDone": {
+    "message": "スクレイピングが完了しました。スクレイピングされたデータをダウンロードするにはダウンロードボタンをクリックしてください。",
+    "description": "スクレイピングが完了したことを示す成功メッセージ。"
+  },
+  "success": {
+    "message": "成功"
+  },
+  "error": {
+    "message": "エラー"
+  },
+  "save": {
+    "message": "保存"
+  }
+}
