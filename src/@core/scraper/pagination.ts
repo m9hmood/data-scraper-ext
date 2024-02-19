@@ -178,7 +178,11 @@ export const autoNavigate = async (callback: () => Promise<any>) => {
       lastPage = pagination.list[pageIndex]?.textContent
       await _updatePaginationValueInStorage()
       if (!lastPage) {
-        alert.fire('Success', 'Scraping process done, you can download the data now.', 'success')
+        alert.fire(
+          chrome.i18n.getMessage('success'),
+          chrome.i18n.getMessage('scrapingDone'),
+          'success',
+        )
         await storeData(window.location.origin + '-scraping', 'inActive')
         chrome.runtime.sendMessage({ action: 'SCRAPING_DONE', payload: 'inactive' })
         return
@@ -207,8 +211,8 @@ const onSelectPagination = (event: MouseEvent) => {
   if ((!pagination.el && !pagination.list) || pagination.list.length === 0) {
     alert.fire({
       icon: 'error',
-      title: 'Error',
-      text: 'No pagination found or maybe you have selected unsupported pagination type',
+      title: chrome.i18n.getMessage('error'),
+      text: chrome.i18n.getMessage('paginationSelectionError'),
       timer: 2500,
       showCancelButton: false,
       showConfirmButton: false,
@@ -217,8 +221,8 @@ const onSelectPagination = (event: MouseEvent) => {
   } else {
     alert.fire({
       icon: 'success',
-      title: 'Success',
-      text: 'Pagination has been selected successfully',
+      title: chrome.i18n.getMessage('success'),
+      text: chrome.i18n.getMessage('paginationSelectionSuccess'),
       timer: 2000,
       showCancelButton: false,
       showConfirmButton: false,

@@ -6,6 +6,7 @@ export default defineManifest({
     'extracts content from web pages, with the ability to navigate through multiple pages using pagination.',
   version: '0.1.2',
   manifest_version: 3,
+  default_locale: 'en',
   icons: {
     16: 'img/logo-16.png',
     32: 'img/logo-34.png',

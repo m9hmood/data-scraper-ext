@@ -48,14 +48,19 @@ export const loadSavedTargets = async () => {
  * @example - ['identifier', 'link']
  */
 const getTargetSettings = async (): Promise<string[]> => {
+
   const { value: formValues } = await alert.fire({
-    title: 'Target Options',
+    title: chrome.i18n.getMessage('targetSettings'),
     customClass: 'sc-swal',
     html: `
               <div style="width: 100%; text-align: left">
-                  <label for="cs-identifier-input">Identifier</label>
+                  <label for="cs-identifier-input">
+                  ${chrome.i18n.getMessage('identifier')}
+                  </label>
                   <input id="cs-identifier-input" class="swal2-input">
-                  <label for="cs-type-input">Attribute</label>
+                  <label for="cs-type-input">
+                  ${chrome.i18n.getMessage('type')}
+                  </label>
                   <select id="cs-type-input" class="swal2-input">
                       <option value="text">Text</option>
                       <option value="image">Image</option>
@@ -64,14 +69,16 @@ const getTargetSettings = async (): Promise<string[]> => {
               </div>
           `,
     focusConfirm: false,
-    confirmButtonText: 'Save Settings',
+    confirmButtonText: chrome.i18n.getMessage('save'),
     preConfirm: () => {
       const inputs = [
         (document.getElementById('cs-identifier-input') as HTMLInputElement).value,
         (document.getElementById('cs-type-input') as HTMLInputElement).value,
       ]
       if (!inputs[0] || targets.find((target) => target.identifier === inputs[0])) {
-        alert.showValidationMessage(`Please enter a unique identifier`)
+        alert.showValidationMessage(
+          chrome.i18n.getMessage('identifierMustBeUnique'),
+        )
         return
       }
       return inputs

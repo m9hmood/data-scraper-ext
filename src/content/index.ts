@@ -47,6 +47,7 @@ retrieveData(window.location.origin + '-scraping').then((data) => {
   }
 })
 
+
 chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendResponse) => {
   switch (message.type) {
     /**

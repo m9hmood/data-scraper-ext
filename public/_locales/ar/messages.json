@@ -1,0 +1,87 @@
+{
+  "extName": {
+    "message": "مستخرج البيانات",
+    "description": "اسم الاضافة"
+  },
+  "contentScriptNotLoaded": {
+    "message": "يرجى إعادة تحميل الصفحة الحالية لتتمكن من استخدام هذا الاضافة.",
+    "description": "رسالة خطأ تُظهر عندما لا يتم تحميل نص الصفحة في الصفحة."
+  },
+  "downloadTableData": {
+    "message": "تنزيل بيانات الجدول",
+    "description": "تسمية زر لتنزيل بيانات الجدول."
+  },
+  "startPicking": {
+    "message": "بدء تحديد العناصر",
+    "description": "تسمية زر لبدء اختيار عناصر الصفحة."
+  },
+  "continuePicking": {
+    "message": "متابعة تحديد العناصر",
+    "description": "زر لمتابعة اختيار العناصر."
+  },
+  "selectPagination": {
+    "message": "تحديد مرقم الصفحات",
+    "description": "تسمية زر لتحديد عنصر الترقيم الصفحات."
+  },
+  "reSelectPagination": {
+    "message": "إعادة تحديد مرقم الصفحات",
+    "description": "تسمية زر لإعادة تحديد عنصر الترقيم الصفحات."
+  },
+  "startScraping": {
+    "message": "بدء الاستخراج",
+    "description": "تسمية زر لبدء استخراج البيانات."
+  },
+  "downloadScrapedData": {
+    "message": "تنزيل البيانات المستخرجة",
+    "description": "تسمية زر لتنزيل البيانات المستخرجة."
+  },
+  "resetSettings": {
+    "message": "إعادة ضبط إعدادات الموقع",
+    "description": "تسمية زر لإعادة ضبط الإعدادات."
+  },
+  "stopScraping": {
+    "message": "إيقاف الاستخراج",
+    "description": "تسمية زر لإيقاف استخراج البيانات."
+  },
+  "madeBy": {
+    "message": "صُنع بكل ❤️ من قبل",
+    "description": "رسالة تُظهر أن الاضافة مُصنع بحب."
+  },
+  "identifier": {
+    "message": "المعرف",
+    "description": "تسمية لمدخل المعرف."
+  },
+  "type": {
+    "message": "النوع",
+    "description": "تسمية لمدخل النوع."
+  },
+  "paginationSelectionError": {
+    "message": "يرجى تحديد عنصر ترقيم صفحات صالح.",
+    "description": "رسالة خطأ تُظهر عند تحديد عنصر ترقيم صفحات غير صالح."
+  },
+  "paginationSelectionSuccess": {
+    "message": "تم تحديد عنصر الترقيم الصفحات بنجاح.",
+    "description": "رسالة نجاح تُظهر عند تحديد عنصر الترقيم الصفحات بنجاح."
+  },
+  "targetSettings": {
+    "message": "إعدادات العنصر",
+    "description": "تسمية لقسم إعدادات العنصر."
+  },
+  "identifierMustBeUnique": {
+    "message": "يجب أن يكون المعرف فريدًا وغير فارغ.",
+    "description": "رسالة خطأ تُظهر عندما لا يكون المعرف فريدًا."
+  },
+  "scrapingDone": {
+    "message": "تم الانتهاء من استخراج البيانات، يرجى النقر على زر التنزيل لتنزيل البيانات المستخرجة.",
+    "description": "رسالة نجاح تُظهر عند الانتهاء من الاستخراج."
+  },
+  "success": {
+    "message": "نجاح"
+  },
+  "error": {
+    "message": "خطأ"
+  },
+  "save": {
+    "message": "حفظ"
+  }
+}

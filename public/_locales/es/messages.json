@@ -1,0 +1,87 @@
+{
+  "extName": {
+    "message": "Extractor de datos",
+    "description": "Nombre de la extensión"
+  },
+  "contentScriptNotLoaded": {
+    "message": "Por favor, recargue la página actual para poder usar esta extensión.",
+    "description": "Un mensaje de error que se muestra cuando el script de contenido no está cargado en la página."
+  },
+  "downloadTableData": {
+    "message": "Descargar datos de la tabla",
+    "description": "Una etiqueta de botón para descargar los datos de la tabla."
+  },
+  "startPicking": {
+    "message": "Comenzar a seleccionar",
+    "description": "Una etiqueta de botón para comenzar a seleccionar los elementos de la página."
+  },
+  "continuePicking": {
+    "message": "Continuar seleccionando",
+    "description": "Un botón para continuar seleccionando los elementos."
+  },
+  "selectPagination": {
+    "message": "Seleccionar paginación",
+    "description": "Una etiqueta de botón para seleccionar el elemento de paginación."
+  },
+  "reSelectPagination": {
+    "message": "Volver a seleccionar paginación",
+    "description": "Una etiqueta de botón para volver a seleccionar el elemento de paginación."
+  },
+  "startScraping": {
+    "message": "Comenzar a extraer",
+    "description": "Una etiqueta de botón para comenzar a extraer los datos."
+  },
+  "downloadScrapedData": {
+    "message": "Descargar datos extraídos",
+    "description": "Una etiqueta de botón para descargar los datos extraídos."
+  },
+  "resetSettings": {
+    "message": "Restablecer configuración del sitio web",
+    "description": "Una etiqueta de botón para restablecer la configuración."
+  },
+  "stopScraping": {
+    "message": "Detener la extracción",
+    "description": "Una etiqueta de botón para detener la extracción de datos."
+  },
+  "madeBy": {
+    "message": "Hecho con ❤️ por",
+    "description": "Un mensaje para mostrar que la extensión está hecha con amor."
+  },
+  "identifier": {
+    "message": "Identificador",
+    "description": "Una etiqueta para la entrada de identificador."
+  },
+  "type": {
+    "message": "Tipo",
+    "description": "Una etiqueta para la entrada de tipo."
+  },
+  "paginationSelectionError": {
+    "message": "Por favor, seleccione un elemento de paginación válido.",
+    "description": "Un mensaje de error para mostrar cuando se selecciona un elemento de paginación no válido."
+  },
+  "paginationSelectionSuccess": {
+    "message": "Elemento de paginación seleccionado correctamente.",
+    "description": "Un mensaje de éxito para mostrar cuando se selecciona correctamente el elemento de paginación."
+  },
+  "targetSettings": {
+    "message": "Configuración del objetivo",
+    "description": "Una etiqueta para la sección de configuración del objetivo."
+  },
+  "identifierMustBeUnique": {
+    "message": "El identificador debe ser único y no estar vacío.",
+    "description": "Un mensaje de error para mostrar cuando el identificador no es único."
+  },
+  "scrapingDone": {
+    "message": "Extracción completada, por favor haga clic en el botón de descarga para descargar los datos extraídos.",
+    "description": "Un mensaje de éxito para mostrar cuando se completa la extracción."
+  },
+  "success": {
+    "message": "Éxito"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "save": {
+    "message": "Guardar"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "extName": {
+    "message": "Data Scraper",
+    "description": "Extension name"
+  },
+  "contentScriptNotLoaded": {
+    "message": "Please, reload the current page to be able to use this extension.",
+    "description": "An error message that is shown when the content script is not loaded in the page."
+  },
+  "downloadTableData": {
+    "message": "Download Table Data",
+    "description": "A button label to download the table data."
+  },
+  "startPicking": {
+    "message": "Start picking",
+    "description": "A button label to start picking the page elements."
+  },
+  "continuePicking": {
+    "message": "Continue Picking",
+    "description": "A button to continue picking the elements."
+  },
+  "selectPagination": {
+    "message": "Select Pagination",
+    "description": "A button label to select the pagination element."
+  },
+  "reSelectPagination": {
+    "message": "Re-Select Pagination",
+    "description": "A button label to re-select the pagination element."
+  },
+  "startScraping": {
+    "message": "Start Scraping",
+    "description": "A button label to start scraping the data."
+  },
+  "downloadScrapedData": {
+    "message": "Download Scraped Data",
+    "description": "A button label to download the scraped data."
+  },
+  "resetSettings": {
+    "message": "Reset Website Settings",
+    "description": "A button label to reset the settings."
+  },
+  "stopScraping": {
+    "message": "Stop Scraping",
+    "description": "A button label to stop scraping the data."
+  },
+  "madeBy": {
+    "message": "Made with ❤️ by",
+    "description": "A message to show the extension is made with love."
+  },
+  "identifier": {
+    "message": "Identifier",
+    "description": "A label for the identifier input."
+  },
+  "type": {
+    "message": "Type",
+    "description": "A label for the type input."
+  },
+  "paginationSelectionError": {
+    "message": "Please select a valid pagination element.",
+    "description": "An error message to show when invalid pagination element is selected."
+  },
+  "paginationSelectionSuccess": {
+    "message": "Pagination element selected successfully.",
+    "description": "A success message to show when pagination element is selected successfully."
+  },
+  "targetSettings": {
+    "message": "Target Settings",
+    "description": "A label for the target settings section."
+  },
+  "identifierMustBeUnique": {
+    "message": "Identifier must be unique and not empty.",
+    "description": "An error message to show when identifier is not unique."
+  },
+  "scrapingDone": {
+    "message": "Scraping Done, Please click on the download button to download the scraped data.",
+    "description": "A success message to show when scraping is done."
+  },
+  "success": {
+    "message": "Success"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "save": {
+    "message": "Save"
+  }
+}

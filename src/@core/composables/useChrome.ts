@@ -27,6 +27,19 @@ export const useChrome = () => {
     }
     return tab
   }
+
+  /**
+   * method that returns the current language of the browser
+   * @returns - the current language
+   */
+  const getLanguage = () => {
+    return chrome.i18n.getUILanguage()
+  }
+
+  const getTranslation = (message: string) => {
+    return chrome.i18n.getMessage(message)
+  }
+
   /**
    * method that sends a message to a tab by its id
    * @param tabId - the id of the tab
@@ -73,6 +86,8 @@ export const useChrome = () => {
   return {
     getTab,
     getCurrentTab,
+    getLanguage,
+    getTranslation,
     sendMessage,
     sendMessageToCurrentTab,
     sendMessageToBackground,
