@@ -11,10 +11,10 @@ import { STEPS } from '../../@core/enums/steps.enum'
  * const {
  * selectElements,
  * reSelectElements,
- * selectPageNavigation,
+ * enablePageNavigationSelection,
  * downloadScrapedData,
  * downloadTableData,
- * beginScraping,
+ * startScrapingProcess,
  * resetExtensionSettings,
  * } = useContentMessenger()
  *
@@ -59,7 +59,7 @@ export const useContentMessenger = () => {
    * and change the current step to the next step
    * @note - this method will allow the user to scrape multiple pages by selecting the pagination element
    */
-  const selectPageNavigation = async () => {
+  const enablePageNavigationSelection = async () => {
     try {
       await sendMessageToCurrentTab({ type: MESSAGES_TYPES.SELECT_PAGINATION, payload: null })
       state.currentStep = STEPS.START_SCRAPING
@@ -101,7 +101,7 @@ export const useContentMessenger = () => {
    * to start scraping the data and change the current step to the next step
    * @note - this method should be used only if the user has selected pagination element
    */
-  const beginScraping = async () => {
+  const startScrapingProcess = async () => {
     await sendMessageToCurrentTab({ type: MESSAGES_TYPES.START_SCRAPING, payload: null })
     state.currentStep = STEPS.SCRAPING_IN_PROCESS
   }
@@ -124,9 +124,9 @@ export const useContentMessenger = () => {
   /**
    * Method to check if content.js file is loaded in active tab
    */
-  const isContentScriptActive = async () => {
+  const getContentScriptState = async () => {
     return await sendMessageToCurrentTab({
-      type: MESSAGES_TYPES.IS_CONTENT_SCRIPT_ACTIVE,
+      type: MESSAGES_TYPES.IS_CONTENT_SCRIPT_LOADED,
       payload: null,
     })
   }
@@ -136,7 +136,7 @@ export const useContentMessenger = () => {
    * and change the current step accordingly
    * @note - this method should be called when the popup is opened
    */
-  const LoadSavedSettingForCurrentTab = async () => {
+  const loadSavedSettingsForCurrentTab = async () => {
     const response = await sendMessageToCurrentTab({ type: 'HAS_SAVED_DATA', payload: null })
     if (response.targets && response.pagination) {
       state.currentStep = STEPS.START_SCRAPING
@@ -148,17 +148,17 @@ export const useContentMessenger = () => {
 
   onMounted(() => {
     checkIfTableExist()
-    LoadSavedSettingForCurrentTab()
+    loadSavedSettingsForCurrentTab()
   })
 
   return {
     selectElements,
     reSelectElements,
-    selectPageNavigation,
+    enablePageNavigationSelection,
     downloadScrapedData,
     downloadTableData,
-    beginScraping,
+    startScrapingProcess,
     resetExtensionSettings,
-    isContentScriptActive
+    getContentScriptState
   }
 }

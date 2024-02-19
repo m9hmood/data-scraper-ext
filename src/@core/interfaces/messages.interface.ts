@@ -13,6 +13,6 @@ export interface IExtensionMessage {
     | 'STOP_SCRAPING'
     | 'IS_SCRAPING'
     | 'HAS_SAVED_DATA'
-    | 'IS_CONTENT_SCRIPT_ACTIVE'
+    | 'IS_CONTENT_SCRIPT_LOADED'
   payload: any
 }

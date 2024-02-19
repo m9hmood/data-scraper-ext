@@ -9,12 +9,12 @@ import { STEPS } from '../@core/enums/steps.enum'
 const {
   selectElements,
   reSelectElements,
-  selectPageNavigation,
+  enablePageNavigationSelection,
   downloadScrapedData,
   downloadTableData,
-  beginScraping,
+  startScrapingProcess,
   resetExtensionSettings,
-  isContentScriptActive
+  getContentScriptState
 } = useContentMessenger()
 
 const { getCurrentTab } = useChrome()
@@ -25,11 +25,11 @@ const scriptIsActive = ref(false);
 const setTabSettings = async () => {
   const tab = await getCurrentTab()
   state.STEP_STORAGE_KEY = `tab-${tab.id}-step`
-  state.CURRENT_SITE_ORIGIN = new URL(tab.url || '').origin
+  state.currentSiteOrigin = new URL(tab.url || '').origin
 }
 
 const checkIfContentScriptIsLoaded = async () => {
-  const response = await isContentScriptActive();
+  const response = await getContentScriptState();
   if(response === 'success') scriptIsActive.value = true;
 }
 
@@ -61,7 +61,7 @@ onMounted(() => {
         <button
           v-if="state.currentStep === STEPS.SELECT_PAGINATION"
           class="btn btn-warning"
-          @click="selectPageNavigation"
+          @click="enablePageNavigationSelection"
         >
           Select Pagination
         </button>
@@ -78,7 +78,7 @@ onMounted(() => {
         <button
           v-if="state.currentStep === STEPS.START_SCRAPING"
           class="btn btn-warning"
-          @click="selectPageNavigation"
+          @click="enablePageNavigationSelection"
         >
           Re-Select Pagination
         </button>
@@ -94,7 +94,7 @@ onMounted(() => {
         <button
           v-if="state.currentStep === STEPS.START_SCRAPING"
           class="btn btn-secondary"
-          @click="beginScraping"
+          @click="startScrapingProcess"
         >
           Start Scraping
         </button>

@@ -5,5 +5,5 @@ export const state = reactive({
   isPopupWaitingForResponse: false,
   currentStep: 0,
   STEP_STORAGE_KEY: 'ACTIVE_STEP',
-  CURRENT_SITE_ORIGIN: '',
+  currentSiteOrigin: '',
 })

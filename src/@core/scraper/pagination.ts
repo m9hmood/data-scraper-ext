@@ -178,7 +178,7 @@ export const autoNavigate = async (callback: () => Promise<any>) => {
       lastPage = pagination.list[pageIndex]?.textContent
       await _updatePaginationValueInStorage()
       if (!lastPage) {
-        alert.fire('Success', 'Scraping proccess done, you can download the data now.', 'success')
+        alert.fire('Success', 'Scraping process done, you can download the data now.', 'success')
         await storeData(window.location.origin + '-scraping', 'inActive')
         chrome.runtime.sendMessage({ action: 'SCRAPING_DONE', payload: 'inactive' })
         return

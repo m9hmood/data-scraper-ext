@@ -15,13 +15,13 @@ export const useBackgroundMessenger = () => {
   const { sendMessageToBackground } = useChrome()
 
   /**
-   * Method for checking if scraping is in proccess on current site
-   * and if it is, it sets current step to scraping in proccess
+   * Method for checking if scraping is in process on current site
+   * and if it is, it sets current step to scraping in process
    */
-  const checkIfScrapingInProcess = async () => {
+  const updatePopupStepDuringScraping = async () => {
     await sendMessageToBackground({
       type: MESSAGES_TYPES.IS_SCRAPING,
-      payload: state.CURRENT_SITE_ORIGIN,
+      payload: state.currentSiteOrigin,
     })
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       if (request.type === 'IS_SCRAPING' && request.payload === 'active') {
@@ -36,7 +36,7 @@ export const useBackgroundMessenger = () => {
   const stopScrapingProcess = async () => {
     state.isPopupWaitingForResponse = true
     try {
-      await sendMessageToBackground({ type: 'STOP_SCRAPING', payload: state.CURRENT_SITE_ORIGIN })
+      await sendMessageToBackground({ type: 'STOP_SCRAPING', payload: state.currentSiteOrigin })
       state.currentStep = STEPS.START_SCRAPING
       state.isPopupWaitingForResponse = false
     } catch (error) {
@@ -46,7 +46,7 @@ export const useBackgroundMessenger = () => {
   }
 
   onMounted(() => {
-    checkIfScrapingInProcess()
+    updatePopupStepDuringScraping()
   })
 
   return {

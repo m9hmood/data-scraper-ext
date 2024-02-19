@@ -150,7 +150,7 @@ chrome.runtime.onMessage.addListener((message: IExtensionMessage, sender, sendRe
         pagination: pagination ? true : false,
       })
       break
-    case MESSAGES_TYPES.IS_CONTENT_SCRIPT_ACTIVE:
+    case MESSAGES_TYPES.IS_CONTENT_SCRIPT_LOADED:
       sendResponse('success')
       break;
     default:
