@@ -14,28 +14,30 @@ const {
   downloadTableData,
   startScrapingProcess,
   resetExtensionSettings,
-  getContentScriptState
+  getContentScriptState,
 } = useContentMessenger()
 
 const { getCurrentTab } = useChrome()
-const { stopScrapingProcess } = useBackgroundMessenger()
+const { stopScrapingProcess, updatePopupStepDuringScraping } = useBackgroundMessenger()
 
-const scriptIsActive = ref(false);
+const scriptIsActive = ref(false)
 
 const setTabSettings = async () => {
   const tab = await getCurrentTab()
   state.STEP_STORAGE_KEY = `tab-${tab.id}-step`
   state.currentSiteOrigin = new URL(tab.url || '').origin
+  updatePopupStepDuringScraping()
 }
 
 const checkIfContentScriptIsLoaded = async () => {
-  const response = await getContentScriptState();
-  if(response === 'success') scriptIsActive.value = true;
+  const response = await getContentScriptState()
+  if (response === 'success') scriptIsActive.value = true
 }
 
 onMounted(() => {
   setTabSettings()
-  checkIfContentScriptIsLoaded();
+  checkIfContentScriptIsLoaded()
+
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.type === 'SCRAPING_DONE') {
       state.currentStep = STEPS.SCRAPING_DONE

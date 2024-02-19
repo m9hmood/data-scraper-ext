@@ -45,11 +45,8 @@ export const useBackgroundMessenger = () => {
     }
   }
 
-  onMounted(() => {
-    updatePopupStepDuringScraping()
-  })
-
   return {
     stopScrapingProcess,
+    updatePopupStepDuringScraping,
   }
 }
