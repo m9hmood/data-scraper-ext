@@ -138,7 +138,7 @@ onMounted(() => {
         {{ getTranslation('madeBy') }}
         <a href="https://mahmoodshakir.com" target="_blank">Mahmood A.Shakir</a>
       </span>
-      <span class="footer__version"> v 0.1.2 </span>
+      <span class="footer__version"> v 0.2.0 </span>
     </div>
   </div>
 </template>
